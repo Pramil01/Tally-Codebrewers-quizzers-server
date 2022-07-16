@@ -14,8 +14,11 @@ app.use(
 
 // Routers;
 
-const userRouter = require("./routes/Admins");
-app.use("/auth", userRouter);
+const adminRouter = require("./routes/Admins");
+app.use("/auth", adminRouter);
+
+const quesRouter = require("./routes/Questions");
+app.use("/ques", quesRouter);
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {

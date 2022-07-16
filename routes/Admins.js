@@ -5,6 +5,11 @@ const bcrypt = require("bcrypt");
 
 router.post("/", async (req, res) => {
   const { username, email, password } = req.body;
+  const user = await Admins.findOne({ where: { username } });
+  if (user) {
+    res.status(401).json({ msg: "Username already exists" });
+    return;
+  }
   bcrypt.hash(password, 10).then(async (hash) => {
     const { id } = await Admins.create({
       username,
