@@ -4,7 +4,7 @@ Steps to start the server :
 
 1)Download and set up MySql from https://dev.mysql.com/downloads/installer/
 
-2)open MySql command line client , and after confirming your password, run the following command : CREATE DATABASE  tally_code_brewers;
+2)Open MySql command line client , and after confirming your password, run the following command : CREATE DATABASE  tally_code_brewers;
 
 3)Open the config.json file inside config folder and there change development database to "tally_code_brewers" and password to you MySql password.
 
