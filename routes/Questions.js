@@ -3,9 +3,9 @@ const router = express.Router();
 const { Questions } = require("../models");
 
 router.post("/", async (req, res) => {
-  const { qId, questions, admin } = req.body;
+  const { qId, questions, admin, baseURL } = req.body;
   if (!qId) res.status(400).json({ msg: "id not given" });
-  const link = `http://localhost:3000/#/takeQuiz?id=${qId}`;
+  const link = `${baseURL}/#/takeQuiz?id=${qId}`;
   const { id } = await Questions.create({
     qId,
     questions,
@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
 router.get("/quizes", async (req, res) => {
   const { admin } = req.headers;
   const data = await Questions.findAll({
-    attributes: ["quizName", "link"],
+    attributes: ["quizName", "link", "qId"],
     where: { admin },
   });
   res.send(data);

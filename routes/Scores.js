@@ -32,9 +32,9 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/allScores", async (req, res) => {
-  const { qId } = req.headers;
+  const { qid } = req.headers;
   const data = await Scores.findAll({
-    where: { qId },
+    where: { qid },
   });
   res.send(data);
 });
