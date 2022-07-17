@@ -20,6 +20,9 @@ app.use("/auth", adminRouter);
 const quesRouter = require("./routes/Questions");
 app.use("/ques", quesRouter);
 
+const scoreRouter = require("./routes/Scores");
+app.use("/scores", scoreRouter);
+
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on ${PORT}`);

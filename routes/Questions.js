@@ -18,6 +18,15 @@ router.post("/", async (req, res) => {
   });
 });
 
+router.get("/", async (req, res) => {
+  const { qid } = req.headers;
+  const data = await Questions.findOne({
+    attributes: ["questions"],
+    where: { qid },
+  });
+  res.send(data);
+});
+
 router.get("/quizes", async (req, res) => {
   const { admin } = req.headers;
   const data = await Questions.findAll({
