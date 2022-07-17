@@ -13,7 +13,6 @@ app.use(
 );
 
 // Routers;
-
 const adminRouter = require("./routes/Admins");
 app.use("/auth", adminRouter);
 
